@@ -7,7 +7,7 @@ designed an async fifo which is usefull to tackle the clock domain crossing issu
 
 used an extra bit for read and write pointers for the detection of full and empty signals appropriately.
 
-**further improvements **
+**further improvements**
 
 -- need to synchronize the read pointer to write clock domain and read pointer to write clock domain using 2 flop synchroniser 
 
