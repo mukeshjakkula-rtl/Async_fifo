@@ -1,0 +1,70 @@
+====================================================
+  JasperGold - Superlint Violation/Property Report  
+====================================================
+
+---[ <Report Information> ]-------------------
+----------------------------------------------
+ Num  | module     | created date             
+----------------------------------------------
+[1]     async_fifo   Dec 17 17:48:48 IST 2025 
+
+
+********************************************************************************************
+
+VIOLATIONS SUMMARY
+---[ <Domain: LINT> ]-----------------------------------------
+--------------------------------------------------------------
+ Num  | Category    | Error | Warning | Info | Waived | Total 
+--------------------------------------------------------------
+[1]     CODINGSTYLE   0       8         0      0        8     
+[2]     RACES         0       1         0      0        1     
+[3]     STRUCTURAL    0       11        2      0        13    
+[4]     Total         0       20        2      0        22    
+
+---[ <CODINGSTYLE> ]-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Num  | Severity | Tag         | Message                                                                                                                                                | Source Location    | Instance-Module       | Grouping Status 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[1]     Warning    FLP_NR_MXCS   "Combinational logic detected in sequential block for flop 'rd_ptr'"                                                                                     async_fifo.v :44     async_fifo-async_fifo   -               
+[2]     Warning    FLP_NR_MXCS   "Combinational logic detected in sequential block for flop 'wr_ptr'"                                                                                     async_fifo.v :27     async_fifo-async_fifo   -               
+[3]     Warning    MOD_NR_UNGN   "Unnamed generate block found in design-unit 'g_b'"                                                                                                      async_fifo.v :107    *-g_b                   -               
+[4]     Warning    OPR_NR_UCMP   "Unequal length operands in equality operator encountered in design-unit/block async_fifo. LHS operand is 4 bits, RHS operand is 32 bits"                async_fifo.v :68     *-async_fifo            Grouped         
+[5]     Warning    OPR_NR_UEAS   "Unequal length operand in arithmetic operator addition in design-unit/block async_fifo. LHS operand 'wr_ptr' is 4 bits, RHS operand '1'b1' is 1 bits"   async_fifo.v :35     *-async_fifo            -               
+[6]     Warning    OPR_NR_UEAS   "Unequal length operand in arithmetic operator addition in design-unit/block async_fifo. LHS operand 'rd_ptr' is 4 bits, RHS operand '1'b1' is 1 bits"   async_fifo.v :50     *-async_fifo            -               
+[7]     Warning    OPR_NR_UEAS   "Unequal length operand in arithmetic operator addition in design-unit/block async_fifo. LHS operand 'wr_ptr' is 4 bits, RHS operand '1'b1' is 1 bits"   async_fifo.v :68     *-async_fifo            -               
+[8]     Warning    OTP_NR_ASYA   "Output port 'f3.b[2:0]' is assigned asynchronously"                                                                                                     async_fifo.v :101    f3-g_b                  -               
+
+---[ <RACES> ]------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+ Num  | Severity | Tag         | Message                                      | Source Location   | Instance-Module       | Grouping Status 
+--------------------------------------------------------------------------------------------------------------------------------------------
+[1]     Warning    REG_NR_RWRC   "A read write race exists for signal: 'mem'"   async_fifo.v :14    async_fifo-async_fifo   -               
+
+---[ <STRUCTURAL> ]----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Num  | Severity | Tag         | Message                                                                                                                                                                | Source Location    | Instance-Module       | Grouping Status 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[1]     Warning    INS_NR_INPR   "Input port 'f3.g' of instance 'f3' is not a register"                                                                                                                   async_fifo.v :100    f3-g_b                  -               
+[2]     Warning    MOD_IS_SYAS   "The design-unit 'async_fifo' contains synchronous as well as asynchronous logic. Asynchronous logic is present at 'g_wr_ptr[3]' and Synchronous logic at 'wr_ptr[3]'"   async_fifo.v :16     async_fifo-async_fifo   -               
+[3]     Warning    MOD_NO_IPRG   "Input port 'data_in' of top-level design-unit is not registered"                                                                                                        async_fifo.v :7      async_fifo-async_fifo   -               
+[4]     Warning    MOD_NO_IPRG   "Input port 'rd_en' of top-level design-unit is not registered"                                                                                                          async_fifo.v :6      async_fifo-async_fifo   Grouped         
+[5]     Warning    MOD_NS_GLGC   "Glue logic inferred in top-level design-unit 'async_fifo'"                                                                                                              async_fifo.v :27     async_fifo-async_fifo   -               
+[6]     Warning    MOD_NS_GLGC   "Glue logic inferred in top-level design-unit 'async_fifo'"                                                                                                              async_fifo.v :44     async_fifo-async_fifo   -               
+[7]     Warning    MOD_NS_GLGC   "Glue logic inferred in top-level design-unit 'async_fifo'"                                                                                                              async_fifo.v :58     async_fifo-async_fifo   -               
+[8]     Warning    MOD_NS_GLGC   "Glue logic inferred in top-level design-unit 'async_fifo'"                                                                                                              async_fifo.v :59     async_fifo-async_fifo   -               
+[9]     Warning    MOD_NS_GLGC   "Glue logic inferred in top-level design-unit 'async_fifo'"                                                                                                              async_fifo.v :68     async_fifo-async_fifo   -               
+[10]    Warning    MOD_NS_GLGC   "Glue logic inferred in top-level design-unit 'async_fifo'"                                                                                                              async_fifo.v :69     async_fifo-async_fifo   -               
+[11]    Warning    NET_NO_LDDR   "Net 'i' declared in design-unit 'async_fifo' neither has driver nor any load"                                                                                           async_fifo.v :23     async_fifo-async_fifo   -               
+[12]    Info       CLK_IS_MCDM   "Clock domain crossing is occurring between nets: 'f0.a[3]' and 'rd_ptr[3]', perform CDC verification for more details"                                                  async_fifo.v :85     f0-f_sync               Grouped         
+[13]    Info       MOD_NS_DCLK   "In instance 'async_fifo', clocks belong to following different clock domains: clk_w, clk_r"                                                                             async_fifo.v :3      async_fifo-async_fifo   -               
+
+
+
+********************************************************************************************
+
+
+********************************************************************************************
+
+
+
+[JasperGold 2019.09] [Platform Linux] [Version 2019.09p002 64 bits] [Build date 2019.11.26 18:17:27 PST]
